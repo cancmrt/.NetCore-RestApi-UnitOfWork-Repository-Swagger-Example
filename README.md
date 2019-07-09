@@ -7,7 +7,7 @@ This is Example of Using .Net Core RestApi with Dapper(also Dapper Contrip) and 
 include Swagger integration too
 
 I create and test restapi using this(market) database, create script on below.
-
+```sql
 USE [market]
 GO
 /****** Object:  Table [dbo].[Category]    Script Date: 9.07.2019 14:27:13 ******/
@@ -48,3 +48,4 @@ CREATE TABLE [dbo].[Product](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
+```
