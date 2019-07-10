@@ -25,7 +25,9 @@ namespace restapi.Controllers
         {
             using (UnitOfWork unit = new UnitOfWork(connection))
             {
-                return unit.CategoryRepository.GetAll();
+                IEnumerable<Category> results = unit.CategoryRepository.GetAll();
+                unit.Commit();
+                return results;
             }
         }
 
@@ -34,7 +36,9 @@ namespace restapi.Controllers
         {
             using (UnitOfWork unit = new UnitOfWork(connection))
             {
-                return unit.CategoryRepository.Get(id);
+                Category result = unit.CategoryRepository.Get(id);
+                unit.Commit();
+                return result;
             }
         }
 
@@ -43,7 +47,9 @@ namespace restapi.Controllers
         {
             using (UnitOfWork unit = new UnitOfWork(connection))
             {
-                return unit.CategoryRepository.TopFiveCategory();
+                IEnumerable<Category> results = unit.CategoryRepository.TopFiveCategory();
+                unit.Commit();
+                return results;
             }
         }
 
@@ -54,6 +60,7 @@ namespace restapi.Controllers
             using (UnitOfWork unit = new UnitOfWork(connection))
             {
                 unit.CategoryRepository.Insert(newProduct);
+                unit.Commit();
             }
         }
 
@@ -64,6 +71,7 @@ namespace restapi.Controllers
             using (UnitOfWork unit = new UnitOfWork(connection))
             {
                 unit.CategoryRepository.Update(updateProduct);
+                unit.Commit();
             }
         }
 
@@ -73,6 +81,7 @@ namespace restapi.Controllers
             using (UnitOfWork unit = new UnitOfWork(connection))
             {
                 unit.CategoryRepository.Delete(deleteProduct);
+                unit.Commit();
             }
         }
     }
